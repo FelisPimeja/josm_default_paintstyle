@@ -5825,14 +5825,16 @@ area[area:highway=footway] {
 /* Indoor */
 
 /* Rooms and areas */
-area[indoor][indoor!=area]:closed {
+area[indoor][indoor!=area][indoor!=wall][indoor!=column][indoor!=yes]:closed {
     fill-opacity: 0.4;
     color: #ffffffd5;
     width: 4;
 }
 
-area[indoor=area]:closed {
-    width: 0.5;
+area[indoor=area]:closed,
+area[indoor=wall],
+area[indoor=column] {
+    width: 0.3;
 }
 
 
@@ -5874,15 +5876,14 @@ area[indoor=wall]:closed,
 area[indoor=column]:closed {
     fill-color: #ffffff;
     fill-opacity: 0.8;
-    color: #ffffffd5;
-    width: 4;
 } 
 
+
+area[indoor=room] > way,
 way[indoor=wall] {
     color: #ffffffd5;
     width: 4;
 } 
-
 
 
 /*
